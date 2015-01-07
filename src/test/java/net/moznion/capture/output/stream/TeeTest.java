@@ -1,4 +1,4 @@
-package net.moznion;
+package net.moznion.capture.output.stream;
 
 import static org.junit.Assert.assertEquals;
 
