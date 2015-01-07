@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.moznion</groupId>
-	<artifactId>capture-stdout-streams</artifactId>
+	<artifactId>capture-output-stream</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>capture-stdout-streams</name>
+	<name>capture-output-stream</name>
 	<description></description>
 	<url></url>
 

@@ -1,4 +1,4 @@
-capture-stdout-streams
+capture-output-stream
 =============
 
 TBD
