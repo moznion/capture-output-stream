@@ -1,17 +1,56 @@
-capture-output-stream
+capture-output-stream [![Build Status](https://travis-ci.org/moznion/capture-output-stream.svg?branch=master)](https://travis-ci.org/moznion/capture-output-stream)
 =============
 
-TBD
+Capture STDOUT and STDERR from Java with AutoCloseable
 
 Synopsis
 ---
 
-TBD
+### Capturing
+
+```java
+import net.moznion.capture.output.stream.Capturer;
+
+import java.io.ByteArrayOutputStream;
+
+ByteArrayOutputStream stdout = new ByteArrayOutputStream();
+ByteArrayOutputStream stderr = new ByteArrayOutputStream();
+
+try (Capturer capturer = new Capturer(stdout, stderr)) {
+    System.out.print("hello");   // <= don't print anything
+    System.err.print("goodbye"); // <= don't print anything
+} // turn back to original stdout and stderr at here
+
+System.out.print(stdout.toString()); // <= print "hello" on stdout
+System.err.print(stderr.toString()); // <= print "goodbye" on stderr
+```
+
+### Tee
+
+```java
+import net.moznion.capture.output.stream.Tee;
+
+import java.io.ByteArrayOutputStream;
+
+ByteArrayOutputStream stdoutBranch = new ByteArrayOutputStream();
+ByteArrayOutputStream stderrBranch = new ByteArrayOutputStream();
+
+try (Tee tee = new Tee(stdoutBranch, stderrBranch)) {
+    System.out.print("hello");   // <= print "hello" and pass contents to stdoutBranch
+    System.err.print("goodbye"); // <= print "goodbye" and pass contents to stderrBranch
+} // don't pass contents to branch anymore if it reaches here
+
+System.out.print(stdoutBranch.toString()); // <= print "hello" on stdout
+System.err.print(stderrBranch.toString()); // <= print "goodbye" on stderr
+```
 
 Description
 --
 
-TBD
+This package provides simple functions to capture or tee contents which is sent to STDERR or STDOUT.
+It turns back to STDOUT or STDERR state which is before capturing or tee when escaping from try-with-resources statement.
+
+This package is inspired by [Capture::Tiny](https://metacpan.org/pod/Capture::Tiny) from Perl.
 
 Author
 --
