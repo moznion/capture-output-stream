@@ -1,17 +1,17 @@
 package net.moznion;
 
-import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 
 public class Capturer implements AutoCloseable {
 	private final StdoutCapturer stdoutCapturer;
 	private final StderrCapturer stderrCapturer;
 
-	public Capturer(ByteArrayOutputStream altStdout, ByteArrayOutputStream altStderr) {
-		stdoutCapturer = new StdoutCapturer(altStdout);
-		stderrCapturer = new StderrCapturer(altStderr);
+	public Capturer(OutputStream alternativeStdout, OutputStream alternativeStderr) {
+		stdoutCapturer = new StdoutCapturer(alternativeStdout);
+		stderrCapturer = new StderrCapturer(alternativeStderr);
 	}
 
-	public Capturer(ByteArrayOutputStream mergedOut) {
+	public Capturer(OutputStream mergedOut) {
 		stdoutCapturer = new StdoutCapturer(mergedOut);
 		stderrCapturer = new StderrCapturer(mergedOut);
 	}

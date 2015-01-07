@@ -1,18 +1,18 @@
 package net.moznion;
 
-import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 
 public class StderrCapturer implements AutoCloseable {
-	private final PrintStream originalPrintStream;
+	private final PrintStream originalStderr;
 
-	public StderrCapturer(ByteArrayOutputStream altByteArrayOutputStream) {
-		originalPrintStream = System.err;
-		System.setErr(new PrintStream(altByteArrayOutputStream));
+	public StderrCapturer(OutputStream alternativeStderr) {
+		originalStderr = System.err;
+		System.setErr(new PrintStream(alternativeStderr));
 	}
 
 	@Override
 	public void close() {
-		System.setErr(originalPrintStream);
+		System.setErr(originalStderr);
 	}
 }
