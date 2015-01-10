@@ -15,6 +15,16 @@ public class StdoutCapturer implements AutoCloseable {
   /**
    * Capture STDOUT after instantiating this.
    * 
+   * <code>
+   * ByteArrayOutputStream stdout = new ByteArrayOutputStream();
+   * 
+   * try (StdoutCapturer capturer = new StdoutCapturer(stdout)) {
+   *    System.out.print("hello"); // <= don't print anything
+   * } // turn back to original stdout at here
+   * 
+   * System.out.print(stdout.toString()); // <= print "hello" on stdout
+   * </code>
+   * 
    * @param alternativeStdout STROUT stream to capture. Captured STDOUT contents can retrieve
    *        through this variable.
    */

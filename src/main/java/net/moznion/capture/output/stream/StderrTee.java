@@ -24,6 +24,16 @@ public class StderrTee implements AutoCloseable {
   /**
    * Tee STDERR after instantiating this.
    * 
+   * <code>
+   * ByteArrayOutputStream stderrBranch = new ByteArrayOutputStream();
+   * 
+   * try (StderrTee tee = new StderrTee(stderrBranch)) {
+   *   System.err.print("goodbye"); // <= print "goodbye" and pass contents to stderrBranch
+   * } // don't pass contents to branch anymore if it reaches here
+   * 
+   * System.err.print(stderrBranch.toString()); // <= print "goodbye" on stderr
+   * </code>
+   * 
    * @param stderrBranch STRERR stream to capture. Captured STDERR contents can retrieve through
    *        this variable. Original STDERR is also available.
    */
