@@ -3,7 +3,7 @@
 
 	<groupId>net.moznion</groupId>
 	<artifactId>capture-output-stream</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>capture-output-stream</name>
@@ -163,7 +163,7 @@
 		<url>https://github.com/moznion/capture-output-stream</url>
 		<connection>scm:git:git@github.com:moznion/capture-output-stream.git</connection>
 		<developerConnection>scm:git:git@github.com:moznion/capture-output-stream.git</developerConnection>
-		<tag>capture-output-stream-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<licenses>
