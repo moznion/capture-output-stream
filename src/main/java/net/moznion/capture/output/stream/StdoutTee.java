@@ -1,10 +1,10 @@
 package net.moznion.capture.output.stream;
 
+import org.apache.commons.io.output.TeeOutputStream;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-
-import org.apache.commons.io.output.TeeOutputStream;
 
 /**
  * Tee-er for STDOUT.
@@ -24,15 +24,15 @@ public class StdoutTee implements AutoCloseable {
   /**
    * Tee STROUT after instantiating this.
    * 
-   * <code>
+   * <pre><code>
    * ByteArrayOutputStream stdoutBranch = new ByteArrayOutputStream();
    * 
    * try (StdoutTee tee = new StdoutTee(stdoutBranch)) {
-   *   System.out.print("hello");   // <= print "hello" and pass contents to stdoutBranch
+   *   System.out.print(&quot;hello&quot;); // &lt;= print &quot;hello&quot; and pass contents to stdoutBranch
    * } // don't pass contents to branch anymore if it reaches here
    * 
-   * System.out.print(stdoutBranch.toString()); // <= print "hello" on stdout
-   * </code>
+   * System.out.print(stdoutBranch.toString()); // &lt;= print &quot;hello&quot; on stdout
+   * </code></pre>
    * 
    * @param stdoutBranch STROUT stream to capture. Captured STDOUT contents can retrieve through
    *        this variable. Original STDOUT is also available.

@@ -1,10 +1,10 @@
 package net.moznion.capture.output.stream;
 
+import org.apache.commons.io.output.TeeOutputStream;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-
-import org.apache.commons.io.output.TeeOutputStream;
 
 /**
  * Tee-er for STDERR.
@@ -24,15 +24,15 @@ public class StderrTee implements AutoCloseable {
   /**
    * Tee STDERR after instantiating this.
    * 
-   * <code>
+   * <pre><code>
    * ByteArrayOutputStream stderrBranch = new ByteArrayOutputStream();
    * 
    * try (StderrTee tee = new StderrTee(stderrBranch)) {
-   *   System.err.print("goodbye"); // <= print "goodbye" and pass contents to stderrBranch
+   *   System.err.print(&quot;goodbye&quot;); // &lt;= print &quot;goodbye&quot; and pass contents to stderrBranch
    * } // don't pass contents to branch anymore if it reaches here
    * 
-   * System.err.print(stderrBranch.toString()); // <= print "goodbye" on stderr
-   * </code>
+   * System.err.print(stderrBranch.toString()); // &lt;= print &quot;goodbye&quot; on stderr
+   * </code></pre>
    * 
    * @param stderrBranch STRERR stream to capture. Captured STDERR contents can retrieve through
    *        this variable. Original STDERR is also available.

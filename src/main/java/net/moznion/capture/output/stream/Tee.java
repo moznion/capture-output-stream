@@ -21,18 +21,18 @@ public class Tee implements AutoCloseable {
   /**
    * Tee STDOUT and STDERR independently after instantiating this.
    * 
-   * <code>
+   * <pre><code>
    * ByteArrayOutputStream stdoutBranch = new ByteArrayOutputStream();
    * ByteArrayOutputStream stderrBranch = new ByteArrayOutputStream();
    * 
    * try (Tee tee = new Tee(stdoutBranch, stderrBranch)) {
-   *   System.out.print("hello");   // <= print "hello" and pass contents to stdoutBranch
-   *   System.err.print("goodbye"); // <= print "goodbye" and pass contents to stderrBranch
+   *   System.out.print(&quot;hello&quot;); // &lt;= print &quot;hello&quot; and pass contents to stdoutBranch
+   *   System.err.print(&quot;goodbye&quot;); // &lt;= print &quot;goodbye&quot; and pass contents to stderrBranch
    * } // don't pass contents to branch anymore if it reaches here
    * 
-   * System.out.print(stdoutBranch.toString()); // <= print "hello" on stdout
-   * System.err.print(stderrBranch.toString()); // <= print "goodbye" on stderr
-   * </code>
+   * System.out.print(stdoutBranch.toString()); // &lt;= print &quot;hello&quot; on stdout
+   * System.err.print(stderrBranch.toString()); // &lt;= print &quot;goodbye&quot; on stderr
+   * </code></pre>
    * 
    * @param stdoutBranch STROUT stream to capture. Captured STDOUT contents can retrieve through
    *        this variable. Original STDOUT is also available.
@@ -47,16 +47,16 @@ public class Tee implements AutoCloseable {
   /**
    * Tee STDOUT and STDERR which are merged after instantiating this.
    * 
-   * <code>
+   * <pre><code>
    * ByteArrayOutputStream mergedBranch = new ByteArrayOutputStream();
    * 
    * try (Tee tee = new Tee(mergedBranch)) {
-   *   System.out.print("hello");   // <= print "hello" and pass contents to stdoutBranch
-   *   System.err.print("goodbye"); // <= print "goodbye" and pass contents to stderrBranch
+   *   System.out.print(&quot;hello&quot;); // &lt;= print &quot;hello&quot; and pass contents to stdoutBranch
+   *   System.err.print(&quot;goodbye&quot;); // &lt;= print &quot;goodbye&quot; and pass contents to stderrBranch
    * } // don't pass contents to branch anymore if it reaches here
    * 
-   * System.out.print(mergedBranch.toString()); // <= print "hellogoodbye" on stdout
-   * </code>
+   * System.out.print(mergedBranch.toString()); // &lt;= print &quot;hellogoodbye&quot; on stdout
+   * </code></pre>
    * 
    * @param mergedBranch STDOUT and STDERR stream to capture. Captured merged contents can retrieve
    *        through this variable. Original STDOUT and STDERR are available for each independently.
