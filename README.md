@@ -1,5 +1,4 @@
-capture-output-stream [![Build Status](https://travis-ci.org/moznion/capture-output-stream.svg?branch=master)](https://travis-ci.org/moznion/capture-output-stream) [![javadoc.io](https://javadocio-badges.herokuapp.com/net.moznion/capture-output-stream
-/badge.svg)](https://javadocio-badges.herokuapp.com/net.moznion/capture-output-stream)
+capture-output-stream [![Build Status](https://travis-ci.org/moznion/capture-output-stream.svg?branch=master)](https://travis-ci.org/moznion/capture-output-stream) [![javadoc.io](https://javadocio-badges.herokuapp.com/net.moznion/capture-output-stream/badge.svg)](https://javadocio-badges.herokuapp.com/net.moznion/capture-output-stream)
 =============
 
 Capture STDOUT and STDERR from Java with AutoCloseable
